@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add default option as the first item
   const defaultOption = document.createElement("option")
   defaultOption.value = ""
-  defaultOption.textContent = "เลือกวุฒิการศึกษา" // "Select Degree"
+  defaultOption.textContent = "เลือกวุฒิการศึกษาที่บรรจุ" // "Select Degree"
   defaultOption.disabled = true // Make it unselectable
   defaultOption.selected = true // Make it the selected default option
   degreeSelect.appendChild(defaultOption)
@@ -17,7 +17,21 @@ document.addEventListener("DOMContentLoaded", () => {
     option.textContent = degree
     degreeSelect.appendChild(option)
   })
+
+  // Style the select element itself to ensure the selected value is displayed correctly
+  degreeSelect.style.cssText =
+    "max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
 })
+
+$(document).ready(function () {
+  $("#degreeSelect").select2({
+    placeholder: "เลือกวุฒิการศึกษาที่บรรจุ",
+    dropdownCssClass:
+      "max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;", // This is for customizing the dropdown
+  })
+})
+
+
 document
   .getElementById("salaryCalcForm")
   .addEventListener("submit", function (event) {

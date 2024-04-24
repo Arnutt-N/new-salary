@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,400;0,500;0,700;0,800;1,400;1,500;1,700;1,800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Prompt", sans-serif;
+}
+
+/* Add this to your style.css */
+.form-select {
+  max-width: 100%; /* Ensures the select element does not overflow its container */
+  overflow: hidden; /* Prevents the selected option text from spilling out */
+  text-overflow: ellipsis; /* Displays an ellipsis if the text overflows */
+  white-space: nowrap; /* Keeps the text on a single line */
+}
+
+
+/* Add this to your style.css */
+.form-select option {
+  max-width: 100%; /* Limit the width of the option text */
+  overflow: hidden; /* Prevent text from spilling outside the element's bounds */
+  text-overflow: ellipsis; /* Use an ellipsis to indicate text overflow */
+  white-space: nowrap; /* Keep the option text on a single line */
+}
+
+.select2--small {
+  max-width: 100%; /* Limit the width of the option text */
+  overflow: hidden; /* Prevent text from spilling outside the element's bounds */
+  text-overflow: ellipsis; /* Use an ellipsis to indicate text overflow */
+  white-space: nowrap; /* Keep the option text on a single line */
+}
