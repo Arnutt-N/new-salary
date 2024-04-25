@@ -18,19 +18,23 @@ document.addEventListener("DOMContentLoaded", () => {
     degreeSelect.appendChild(option)
   })
 
-  // Style the select element itself to ensure the selected value is displayed correctly
-  degreeSelect.style.cssText =
-    "max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;"
-})
+  // Initialize Select2 on your degreeSelect element after options are appended
+  // $(degreeSelect).select2({
+  //   placeholder: "เลือกวุฒิการศึกษาที่บรรจุ", // "Select Degree"
+  //   allowClear: true,
+  //   dropdownCssClass: "wrap-text", // Apply custom dropdown styling
+  // })
 
-$(document).ready(function () {
-  $("#degreeSelect").select2({
-    placeholder: "เลือกวุฒิการศึกษาที่บรรจุ",
-    dropdownCssClass:
-      "max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;", // This is for customizing the dropdown
+  $(degreeSelect).select2({
+    // ... other options
+    templateResult: function (data) {
+      var $option = $(
+        '<option style="white-space: normal;">' + data.text + "</option>"
+      )
+      return $option
+    },
   })
 })
-
 
 document
   .getElementById("salaryCalcForm")
@@ -72,16 +76,30 @@ document
     }
   })
 
+// document.getElementById("clearButton").addEventListener("click", function () {
+//   // Clear the form fields
+//   document.getElementById("degreeSelect").value = ""
+//   document.getElementById("currentSalary").value = ""
+
+//   // Optionally, if you have other fields like 'salaryLimit', clear them as well
+//   // document.getElementById('salaryLimit').value = '';
+
+//   // Clear the result display
+//   document.getElementById("result").innerHTML = ""
+
+//   // If there are any other elements you want to reset, you can do so here
+// })
+
 document.getElementById("clearButton").addEventListener("click", function () {
-  // Clear the form fields
-  document.getElementById("degreeSelect").value = ""
+  // Clear the current salary input field
   document.getElementById("currentSalary").value = ""
 
-  // Optionally, if you have other fields like 'salaryLimit', clear them as well
+  // Clear the Select2 dropdown and reset to the placeholder
+  $("#degreeSelect").val(null).trigger("change") // Resetting Select2 dropdown
+
+  // Optionally, clear other fields like 'salaryLimit'
   // document.getElementById('salaryLimit').value = '';
 
   // Clear the result display
   document.getElementById("result").innerHTML = ""
-
-  // If there are any other elements you want to reset, you can do so here
 })

@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Salary Calculation</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Include Select2 CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="style.css">
@@ -17,16 +15,17 @@
 <body>
 
     <div class="container mt-5">
-        <h2>Calculate New Salary May 2024</h2>
+        <h3>Calculate New Salary May 2024</h3>
         <form id="salaryCalcForm">
-            <div class="mb-3">
+            <div class="mt-3">
                 <label for="degreeSelect" class="form-label">Degree</label>
                 <select class="form-select" id="degreeSelect" required>
+                    
                     <!-- Options will be loaded here by JavaScript -->
 
                 </select>
             </div>
-            <div class="mb-3">
+            <div class="mt-3">
                 <label for="currentSalary" class="form-label">Current Salary (At 1 April 2024)</label>
                 <input type="number" class="form-control" id="currentSalary"
                     placeholder="ระบุเงินเดือน ประมาณการ ณ 1 เม.ย. 2024" required>
@@ -41,10 +40,18 @@
             <!-- Result will be shown here -->
         </div>
     </div>
-
+    <!-- <script>
+        $(document).ready(function () {
+            $('#degreeSelect').select2({
+                dropdownCssClass: 'wrap-text', // custom CSS class for dropdown
+            });
+        });
+    </script> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Later, before your closing body tag, include Select2 JS -->
+    <!-- Include jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Include Select2 JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
     <script src="salaryData.js"></script> <!-- Link to your JSON data -->
     <script src="script.js"></script> <!-- Your custom script -->
