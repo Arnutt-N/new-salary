@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Add default option as the first item
   const defaultOption = document.createElement("option")
   defaultOption.value = ""
-  defaultOption.textContent = "เลือกวุฒิการศึกษาที่บรรจุ" // "Select Degree"
+  defaultOption.textContent = "เลือกวุฒิการศึกษาที่บรรจุ หรือวุฒิการศึกษาในตำแหน่งปัจจุบัน" // "Select Degree"
   defaultOption.disabled = true // Make it unselectable
   defaultOption.selected = true // Make it the selected default option
   degreeSelect.appendChild(defaultOption)
