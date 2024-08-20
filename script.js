@@ -62,17 +62,17 @@ document
 
       // If the calculated new salary exceeds the salary new limit, adjust the new salary and notice
       if (newSalary > matchingData.salaryNewLimit) {
-        noticeMessage = `Notice: Your earned salary (${salaryEarn}) and current salary (${currentSalary}) exceed the new salary limit (${matchingData.salaryNewLimit}), so your new salary is adjusted to the limit.`
+        noticeMessage = `หมายเหตุ: จำนวนเงินที่ได้ปรับ ${salaryEarn} บาท เมื่อรวมกับอัตราเงินเดือน ${currentSalary} บาท แล้ว อัตราเงินเดือนที่ได้รับจะต้องไม่เกิน ${matchingData.salaryNewLimit} บาท`
         newSalary = matchingData.salaryNewLimit
         salaryEarn = matchingData.salaryNewLimit - currentSalary
       }
 
       document.getElementById(
         "result"
-      ).innerHTML = `Salary Earn: ${salaryEarn}, New Salary: ${newSalary} <br> ${noticeMessage}`
+      ).innerHTML = `จำนวนเงินที่ได้ปรับ: ${salaryEarn} บาท, อัตราเงินเดือนที่ได้รับ: ${newSalary} บาท<br> ${noticeMessage}`
     } else {
       document.getElementById("result").innerHTML =
-        "No matching data found for the selected degree and current salary. Please ensure your current salary falls within the available ranges."
+        "ไม่พบข้อมูลการปรับอัตราเงินเดือนที่สอดคล้องกับวุฒิการศึกษาและอัตราเงินเดือนตามที่ท่านระบุ กรุณาตรวจสอบข้อมูลวุฒิการศึกษาและอัตราเงินเดือนปัจจุบันของท่านอีกครั้ง หากมีข้อสงสัยหรือต้องการข้อมูลเพิ่มเติม สามารถติดต่อสอบถามได้ที่หมายเลขโทรศัพท์ 0 2141 5192"
     }
   })
 
