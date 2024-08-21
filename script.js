@@ -52,15 +52,20 @@ document.getElementById("salaryCalcForm").addEventListener("submit", function (e
 
     // If the calculated new salary exceeds the salary new limit, adjust the new salary and notice
     if (newSalary > matchingData.salaryNewLimit) {
-      noticeMessage = `หมายเหตุ: จำนวนเงินที่ได้ปรับ ${salaryEarn.toLocaleString()} บาท เมื่อรวมกับอัตราเงินเดือน ${currentSalary.toLocaleString()} บาท แล้ว อัตราเงินเดือนที่ได้รับจะต้องไม่เกิน ${matchingData.salaryNewLimit.toLocaleString()} บาท`;
+      noticeMessage = `<div style="line-height: 1.6;margin-top:20px">หมายเหตุ : คำนวณจำนวนเงินที่ได้ปรับ ${salaryEarn.toLocaleString()} บาท เมื่อรวมกับอัตราเงินเดือน ${currentSalary.toLocaleString()} บาท แล้ว อัตราเงินเดือนที่ได้รับจะต้องไม่เกิน ${matchingData.salaryNewLimit.toLocaleString()} บาท</div>`;
       newSalary = matchingData.salaryNewLimit;
       salaryEarn = matchingData.salaryNewLimit - currentSalary;
     }
 
-    document.getElementById("result").innerHTML = `จำนวนเงินที่ได้ปรับ: ${salaryEarn.toLocaleString()} บาท, อัตราเงินเดือนที่ได้รับ: ${newSalary.toLocaleString()} บาท<br> ${noticeMessage}`;
+    document.getElementById("result").innerHTML = `
+    <div style="line-height: 2;">
+        👩‍💻 <strong>จำนวนเงินที่ได้ปรับ : ${salaryEarn.toLocaleString()} บาท</strong>
+        <br>👨‍💻 <strong>อัตราเงินเดือนที่ได้รับ : ${newSalary.toLocaleString()} บาท</strong>
+        <br> ${noticeMessage}
+    </div>`;
   } else {
     document.getElementById("result").innerHTML =
-      "ไม่พบข้อมูลการปรับอัตราเงินเดือนที่สอดคล้องกับวุฒิการศึกษาและอัตราเงินเดือนตามที่ท่านระบุ กรุณาตรวจสอบข้อมูลวุฒิการศึกษาและอัตราเงินเดือนปัจจุบันของท่านอีกครั้ง หากมีข้อสงสัยหรือต้องการข้อมูลเพิ่มเติม สามารถติดต่อสอบถามได้ที่หมายเลขโทรศัพท์ 0 2141 5192";
+      `<div style="line-height: 1.2;"><p>ไม่พบข้อมูลการปรับอัตราเงินเดือนที่สอดคล้องกับวุฒิการศึกษาและอัตราเงินเดือนตามที่ท่านระบุ กรุณาตรวจสอบข้อมูลวุฒิการศึกษาและอัตราเงินเดือนปัจจุบันของท่านอีกครั้ง </p><p>หากมีข้อสงสัยหรือต้องการข้อมูลเพิ่มเติม สามารถติดต่อสอบถามได้ที่หมายเลขโทรศัพท์ 0 2141 5192</p></div>`;
   }
 });
 
